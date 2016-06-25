@@ -1,0 +1,9 @@
+{
+    "name": "Widgets",
+    "requirement": "displore/widgets",
+    "provides": {
+        "serviceprovider": "Displore\\Widgets\\WidgetsServiceProvider",
+        "facade": "Widget",
+        "facade-namespace": "Displore\\Widgets\\Facades\\Widget"
+    }
+}

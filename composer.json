@@ -1,0 +1,34 @@
+{
+    "name": "displore/widgets",
+    "description": "Widgets back to basic, with Laravel support.",
+    "keywords": [
+        "Displore",
+        "Widgets",
+        "Laravel"
+    ],
+    "homepage": "https://github.com/Displore/Widgets",
+    "license": "EUPL-1.1",
+    "authors": [
+        {
+            "name": "JeroenG",
+            "email": "jeroengjeroeng@gmail.com",
+            "homepage": "https://github.com/Jeroen-G"
+        }
+    ],
+    "require": {
+        "php" : "~5.5|~5.6|~7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "~4.0||~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Displore\\Widgets\\": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
