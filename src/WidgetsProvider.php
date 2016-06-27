@@ -46,10 +46,10 @@ class WidgetsProvider
     /**
      * Get a widget.
      * 
-     * @param  string                  $name
-     * @param  array|null              $parameters
+     * @param string     $name
+     * @param array|null $parameters
+     *
      * @throws WidgetNotFoundException
-     * @return void
      */
     public function get($name, array $parameters = null)
     {
@@ -64,12 +64,13 @@ class WidgetsProvider
     /**
      * Get the provider for the widget.
      * 
-     * @param  string $widget
+     * @param string $widget
+     *
      * @return object
      */
     public function getProvider($widget)
     {
-        return $this->widgets[$widget] = new $this->providers[$widget];
+        return $this->widgets[$widget] = new $this->providers[$widget]();
     }
 
     /**

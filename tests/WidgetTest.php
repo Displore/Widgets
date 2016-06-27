@@ -10,7 +10,7 @@ class WidgetTest extends TestCase
     public function test_basic_get_widget()
     {
         $providers = [
-            'headline'  =>  Test\Widgets\Headline::class,
+            'headline' => Test\Widgets\Headline::class,
         ];
 
         $service = new WidgetsProvider($providers);
@@ -26,7 +26,7 @@ class WidgetTest extends TestCase
 
         $service = new WidgetsProvider($providers);
 
-        $widget = $service->set('headline', new Test\Widgets\Headline);
+        $widget = $service->set('headline', new Test\Widgets\Headline());
         $widget = $service->get('headline');
 
         $this->assertEquals('Hello world', $widget);
@@ -34,10 +34,10 @@ class WidgetTest extends TestCase
 
     public function test_dynamic_get_widget()
     {
-        $class = (new ReflectionClass(new Test\Widgets\Headline))->getFileName();
+        $class = (new ReflectionClass(new Test\Widgets\Headline()))->getFileName();
         $dir = dirname($class);
 
-        $service = (new DynamicWidgetsProvider)
+        $service = (new DynamicWidgetsProvider())
                     ->withPath($dir)
                     ->withNamespace('Test\\Widgets')
                     ->scanForProviders();
@@ -49,15 +49,15 @@ class WidgetTest extends TestCase
 
     public function test_dynamic_set_widget()
     {
-        $class = (new ReflectionClass(new Test\Widgets\Headline))->getFileName();
+        $class = (new ReflectionClass(new Test\Widgets\Headline()))->getFileName();
         $dir = dirname($class);
 
-        $service = (new DynamicWidgetsProvider)
+        $service = (new DynamicWidgetsProvider())
                     ->withPath($dir)
                     ->withNamespace('Test\\Widgets')
                     ->scanForProviders();
 
-        $widget = $service->set('head-line', new Test\Widgets\Headline);
+        $widget = $service->set('head-line', new Test\Widgets\Headline());
         $widget = $service->get('head-line');
 
         $this->assertEquals('Hello world', $widget);

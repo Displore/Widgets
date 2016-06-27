@@ -8,8 +8,6 @@ class WidgetsServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -22,8 +20,6 @@ class WidgetsServiceProvider extends ServiceProvider
 
     /**
      * Register any package services.
-     *
-     * @return void
      */
     public function register()
     {
@@ -36,8 +32,6 @@ class WidgetsServiceProvider extends ServiceProvider
 
     /**
      * Register default service.
-     *
-     * @return void
      */
     public function registerProvider()
     {
@@ -48,13 +42,11 @@ class WidgetsServiceProvider extends ServiceProvider
 
     /**
      * Register dynamic resolving service.
-     *
-     * @return void
      */
     public function registerDynamicProvider()
     {
         $this->app->singleton('widget', function () {
-            return (new DynamicWidgetsProvider)
+            return (new DynamicWidgetsProvider())
                 ->withPath(config('displore.widgets.path'))
                 ->withNamespace(config('displore.widgets.namespace'))
                 ->scanForProviders();

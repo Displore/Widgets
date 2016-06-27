@@ -39,10 +39,10 @@ class DynamicWidgetsProvider
     /**
      * Get a widget.
      * 
-     * @param  string                  $name
-     * @param  array|null              $parameters
+     * @param string     $name
+     * @param array|null $parameters
+     *
      * @throws WidgetNotFoundException
-     * @return void
      */
     public function get($name, array $parameters = null)
     {
@@ -55,12 +55,13 @@ class DynamicWidgetsProvider
     /**
      * Get the provider for the widget.
      * 
-     * @param  string $name
+     * @param string $name
+     *
      * @return object
      */
     public function getProvider($name)
     {
-        return new $this->widgets[$name];
+        return new $this->widgets[$name]();
     }
 
     /**
@@ -77,6 +78,7 @@ class DynamicWidgetsProvider
      * Scan the widgets folder for classes.
      * 
      * @throws Exception
+     *
      * @return $this
      */
     public function scanForProviders()
@@ -97,7 +99,8 @@ class DynamicWidgetsProvider
     /**
      * Make the name for the widget from its filepath.
      * 
-     * @param  string $file
+     * @param string $file
+     *
      * @return string
      */
     public function makeName($file)
@@ -108,7 +111,8 @@ class DynamicWidgetsProvider
     /**
      * Make the namespaced name of the widget provider class.
      * 
-     * @param  string $file
+     * @param string $file
+     *
      * @return string
      */
     public function makeProvider($file)
@@ -119,8 +123,10 @@ class DynamicWidgetsProvider
     /**
      * Define where to search for widgets.
      * 
-     * @param  string    $widgetPath
+     * @param string $widgetPath
+     *
      * @throws Exception
+     *
      * @return $this
      */
     public function withPath($widgetPath)
@@ -136,7 +142,8 @@ class DynamicWidgetsProvider
     /**
      * Define the widgets' namespace.
      * 
-     * @param  string $namespace
+     * @param string $namespace
+     *
      * @return $this
      */
     public function withNamespace($namespace)
